@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Owner;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +14,6 @@ class OwnerSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Owner::factory(10)->create();
     }
 }

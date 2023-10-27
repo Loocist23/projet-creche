@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Planning;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class PlanningSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Planning::factory(10)->create();
     }
 }

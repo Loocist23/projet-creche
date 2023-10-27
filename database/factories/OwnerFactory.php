@@ -17,7 +17,14 @@ class OwnerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'firstname' => $this->faker->firstName(),
+            'lastname' => $this->faker->lastName(),
+            'email' => $this->faker->email(),
+            'birthdate' => $this->faker->date(),
+            'address' => $this->faker->address(),
+            'city' => $this->faker->city(),
+            'zip_code' => $this->faker->postcode(),
+            'user_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

@@ -17,7 +17,11 @@ class EnfantFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'birthdate' => $this->faker->date(),
+            'firstname' => $this->faker->firstName(),
+            'lastname' => $this->faker->lastName(),
+            'link_profil_picture' => $this->faker->imageUrl(),
+            'owner_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

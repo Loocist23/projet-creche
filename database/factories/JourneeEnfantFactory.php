@@ -17,7 +17,11 @@ class JourneeEnfantFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'commentaire' => $this->faker->text(),
+            'enfant_id' => $this->faker->numberBetween(1, 10),
+            'personnel_id' => $this->faker->numberBetween(1, 10),
+            'menu_id' => $this->faker->numberBetween(1, 10),
+            'planning_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }
