@@ -10,6 +10,13 @@ class Enfant extends Model
     use HasFactory;
 
 
+    protected $fillable = [
+        'lastname',
+        'firstname',
+        'birthdate',
+        'owner_id',
+    ];
+
     // un enfants a un seul owner
     public function owner()
     {

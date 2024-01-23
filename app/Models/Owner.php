@@ -9,7 +9,9 @@ class Owner extends Model
 {
     use HasFactory;
 
-    // un owner a plusieurs enfants et un seul compte (user)
+    protected $fillable = ['firstname', 'lastname', 'email', 'birthdate', 'address', 'city', 'zip_code', 'user_id'];
+
+    // un owner a plusieurs enfants et un seul compte (users)
     public function enfants()
     {
         return $this->hasMany(Enfant::class);

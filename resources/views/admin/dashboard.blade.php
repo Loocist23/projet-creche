@@ -26,6 +26,31 @@
                         <a href="{{ route('admin.users') }}" class="btn btn-primary">Voir les Utilisateurs</a>
                         <a href="{{ route('admin.users.create') }}" class="btn btn-success">Ajouter un Utilisateur</a>
                     </div>
+                    <div class="card-header">Gestion des Enfants</div>
+                    <div class="card-body">
+                        <a href="{{ route('admin.children.index') }}" class="btn btn-primary">Voir les Enfants</a>
+                        <a href="{{ route('admin.children.create') }}" class="btn btn-success">Ajouter un Enfant</a>
+                    </div>
+                    <div class="card-header">Gestion des Parents</div>
+                    <div class="card-body">
+                        <a href="{{ route('admin.owners.index') }}" class="btn btn-primary">Voir les Parents</a>
+                        <a href="{{ route('admin.owners.create') }}" class="btn btn-success">Ajouter un Parent</a>
+                    </div>
+                    <div class="card-header">Gestion du Personnel</div>
+                    <div class="card-body">
+                        <a href="{{ route('admin.staffs.index') }}" class="btn btn-primary">Voir le Personnel</a>
+                        <a href="{{ route('admin.staffs.create') }}" class="btn btn-success">Ajouter un Membre du Personnel</a>
+                    </div>
+                    <div class="card-header">Gestion des Menus</div>
+                    <div class="card-body">
+                        <a href="{{ route('admin.menus.index') }}" class="btn btn-primary">Voir les Menus</a>
+                        <a href="{{ route('admin.menus.create') }}" class="btn btn-success">Ajouter un Menu</a>
+                    </div>
+                    <div class="card-header">Gestion des Plannings</div>
+                    <div class="card-body">
+                        <a href="{{ route('admin.planning.index') }}" class="btn btn-primary">Voir les Plannings</a>
+                        <a href="{{ route('admin.planning.create') }}" class="btn btn-success">Ajouter un Planning</a>
+                    </div>
                 </div>
             </div>
 

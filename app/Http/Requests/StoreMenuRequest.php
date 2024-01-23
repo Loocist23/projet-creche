@@ -7,11 +7,11 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreMenuRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine if the users is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->user()->isAdmin();
     }
 
     /**
@@ -22,7 +22,13 @@ class StoreMenuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'entree' => 'required|string|max:255',
+            'dish' => 'required|string|max:255',
+            'dessert' => 'required|string|max:255',
+            'date' => 'required|date',
         ];
     }
+
 }

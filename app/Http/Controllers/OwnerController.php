@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Owner;
 use App\Http\Requests\StoreOwnerRequest;
 use App\Http\Requests\UpdateOwnerRequest;
+use Illuminate\Http\Request;
+
 
 class OwnerController extends Controller
 {
@@ -13,7 +15,8 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        //
+        $owners = Owner::paginate(10); // Modifiez le nombre selon vos besoins
+        return view('admin.owners.index', compact('owners'));
     }
 
     /**
@@ -21,15 +24,17 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.owners.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreOwnerRequest $request)
     {
-        //
+        $owner = Owner::create($request->validated());
+        return redirect()->route('admin.owners.index')->with('success', 'Parent ajouté avec succès.');
     }
 
     /**
@@ -37,7 +42,7 @@ class OwnerController extends Controller
      */
     public function show(Owner $owner)
     {
-        //
+        return view('admin.owners.show', compact('owner'));
     }
 
     /**
@@ -45,7 +50,7 @@ class OwnerController extends Controller
      */
     public function edit(Owner $owner)
     {
-        //
+        return view('admin.owners.edit', compact('owner'));
     }
 
     /**
@@ -53,7 +58,8 @@ class OwnerController extends Controller
      */
     public function update(UpdateOwnerRequest $request, Owner $owner)
     {
-        //
+        $owner->update($request->validated());
+        return redirect()->route('admin.owners.index')->with('success', 'Parent mis à jour avec succès.');
     }
 
     /**
@@ -61,6 +67,7 @@ class OwnerController extends Controller
      */
     public function destroy(Owner $owner)
     {
-        //
+        $owner->delete();
+        return redirect()->route('admin.owners.index')->with('success', 'Parent supprimé avec succès.');
     }
 }

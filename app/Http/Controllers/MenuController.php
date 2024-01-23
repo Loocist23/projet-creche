@@ -13,7 +13,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $menus = Menu::paginate(10); // Adaptez le nombre selon vos besoins
+        return view('admin.menus.index', compact('menus'));
     }
 
     /**
@@ -21,7 +22,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.menus.create');
     }
 
     /**
@@ -29,7 +30,8 @@ class MenuController extends Controller
      */
     public function store(StoreMenuRequest $request)
     {
-        //
+        Menu::create($request->validated());
+        return redirect()->route('admin.menus.index')->with('success', 'Menu ajouté avec succès.');
     }
 
     /**
@@ -37,7 +39,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        //
+        return view('admin.menus.show', compact('menu'));
     }
 
     /**
@@ -45,7 +47,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('admin.menus.edit', compact('menu'));
     }
 
     /**
@@ -53,7 +55,8 @@ class MenuController extends Controller
      */
     public function update(UpdateMenuRequest $request, Menu $menu)
     {
-        //
+        $menu->update($request->validated());
+        return redirect()->route('admin.menus.index')->with('success', 'Menu mis à jour avec succès.');
     }
 
     /**
@@ -61,6 +64,7 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        $menu->delete();
+        return redirect()->route('admin.menus.index')->with('success', 'Menu supprimé avec succès.');
     }
 }

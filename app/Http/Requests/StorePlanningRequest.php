@@ -7,11 +7,11 @@ use Illuminate\Foundation\Http\FormRequest;
 class StorePlanningRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine if the users is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->user()->isAdmin();
     }
 
     /**
@@ -22,7 +22,7 @@ class StorePlanningRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            ''
         ];
     }
 }

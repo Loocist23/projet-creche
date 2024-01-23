@@ -7,11 +7,11 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreOwnerRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine if the users is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->user()->isAdmin();
     }
 
     /**
@@ -22,7 +22,13 @@ class StoreOwnerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'zip_code' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'birthdate' => 'required|date',
         ];
     }
 }

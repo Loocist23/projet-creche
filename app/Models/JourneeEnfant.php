@@ -9,7 +9,7 @@ class JourneeEnfant extends Model
 {
     use HasFactory;
 
-    // une journee enfant a un seul enfant, plusieurs personnel, un menu, un planning
+    // une journee enfant a un seul enfant, plusieurs personnel, un menus, un planning
     public function enfant()
     {
         return $this->belongsTo(Enfant::class);
