@@ -3,6 +3,15 @@
 @section('content')
     <div class="container">
         <h1>Liste des Enfants</h1>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <a href="{{ route('admin.children.create') }}" class="btn btn-success mb-2">Ajouter un Enfant</a>
         <table class="table">
             <thead>
@@ -34,7 +43,7 @@
             </tbody>
         </table>
         <div class="small-pagination">
-            {{ $personnels->links() }}
+            {{ $enfants->links() }}
         </div>
 
     </div>

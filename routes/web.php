@@ -66,12 +66,12 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin/owners/{owner}/edit', [OwnerController::class, 'edit'])->name('admin.owners.edit');
     Route::put('/admin/owners/{owner}', [OwnerController::class, 'update'])->name('admin.owners.update');
 
-    Route::get('/admin/planning/index', [PlanningController::class, 'index'])->name('admin.planning.index');
-    Route::get('/admin/planning/create', [PlanningController::class, 'create'])->name('admin.planning.create');
-    Route::post('/admin/planning', [PlanningController::class, 'store'])->name('admin.planning.store');
-    Route::delete('/admin/planning/{planning}', [PlanningController::class, 'destroy'])->name('admin.planning.destroy');
-    Route::get('/admin/planning/{planning}/edit', [PlanningController::class, 'edit'])->name('admin.planning.edit');
-    Route::put('/admin/planning/{planning}', [PlanningController::class, 'update'])->name('admin.planning.update');
+    Route::get('/admin/plannings/index', [PlanningController::class, 'index'])->name('admin.plannings.index');
+    Route::get('/admin/plannings/create', [PlanningController::class, 'create'])->name('admin.plannings.create');
+    Route::post('/admin/plannings', [PlanningController::class, 'store'])->name('admin.plannings.store');
+    Route::delete('/admin/plannings/{planning}', [PlanningController::class, 'destroy'])->name('admin.plannings.destroy');
+    Route::get('/admin/plannings/{planning}/edit', [PlanningController::class, 'edit'])->name('admin.plannings.edit');
+    Route::put('/admin/plannings/{planning}', [PlanningController::class, 'update'])->name('admin.plannings.update');
 
     Route::get('/admin/staffs/index', [PersonnelController::class, 'index'])->name('admin.staffs.index');
     Route::get('/admin/staffs/create', [PersonnelController::class, 'create'])->name('admin.staffs.create');

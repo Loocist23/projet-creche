@@ -4,6 +4,15 @@
     <div class="container">
 
         <h1>Ajouter un Enfant</h1>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form method="POST" action="{{ route('admin.children.store') }}">
             @csrf
             <div class="form-group">

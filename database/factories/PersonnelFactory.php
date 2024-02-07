@@ -25,8 +25,7 @@ class PersonnelFactory extends Factory
             'ville' => $this->faker->text(255),
             'telephone' => $this->faker->text(255),
             'email' => $this->faker->text(255),
-            'poste' => $this->faker->text(255),
-            'user_id' => $this->faker->numberBetween(10, 20),
+            'poste' => $this->faker->text(255)
         ];
     }
 }

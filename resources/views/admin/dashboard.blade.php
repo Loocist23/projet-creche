@@ -48,8 +48,8 @@
                     </div>
                     <div class="card-header">Gestion des Plannings</div>
                     <div class="card-body">
-                        <a href="{{ route('admin.planning.index') }}" class="btn btn-primary">Voir les Plannings</a>
-                        <a href="{{ route('admin.planning.create') }}" class="btn btn-success">Ajouter un Planning</a>
+                        <a href="{{ route('admin.plannings.index') }}" class="btn btn-primary">Voir les Plannings</a>
+                        <a href="{{ route('admin.plannings.create') }}" class="btn btn-success">Ajouter un Planning</a>
                     </div>
                 </div>
             </div>

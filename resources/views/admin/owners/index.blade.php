@@ -32,7 +32,7 @@
             </tbody>
         </table>
         <div class="small-pagination">
-            {{ $personnels->links() }}
+            {{ $owners->links() }}
         </div>
 
     </div>

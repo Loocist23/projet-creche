@@ -23,8 +23,7 @@ class OwnerFactory extends Factory
             'birthdate' => $this->faker->date(),
             'address' => $this->faker->address(),
             'city' => $this->faker->city(),
-            'zip_code' => $this->faker->postcode(),
-            'user_id' => $this->faker->numberBetween(1, 10),
+            'zip_code' => $this->faker->postcode()
         ];
     }
 }

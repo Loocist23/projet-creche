@@ -41,6 +41,7 @@ class UserController extends Controller
             'username' => $validatedData['username'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
+            'user_id' => 3,
             // Ajoutez d'autres champs si nécessaire
         ]);
 
