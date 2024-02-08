@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Owner;
 use App\Http\Requests\StoreOwnerRequest;
 use App\Http\Requests\UpdateOwnerRequest;
-use Illuminate\Http\Request;
+use App\Models\Owner;
 
 
 class OwnerController extends Controller

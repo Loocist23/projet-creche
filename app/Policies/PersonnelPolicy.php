@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\Personnel;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class PersonnelPolicy
 {
@@ -13,7 +12,8 @@ class PersonnelPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        // peut voir tout les personnels que si c'est un admin
+        return $user->role_id === 1;
     }
 
     /**
@@ -21,7 +21,8 @@ class PersonnelPolicy
      */
     public function view(User $user, Personnel $personnel): bool
     {
-        //
+        // peut voir que si c'est un admin
+        return $user->role_id === 1;
     }
 
     /**
@@ -29,7 +30,8 @@ class PersonnelPolicy
      */
     public function create(User $user): bool
     {
-        //
+        // peut créer que si c'est un admin
+        return $user->role_id === 1;
     }
 
     /**
@@ -37,7 +39,8 @@ class PersonnelPolicy
      */
     public function update(User $user, Personnel $personnel): bool
     {
-        //
+        // peut modifier que si c'est un admin
+        return $user->role_id === 1;
     }
 
     /**
@@ -45,7 +48,8 @@ class PersonnelPolicy
      */
     public function delete(User $user, Personnel $personnel): bool
     {
-        //
+        // peut supprimer que si c'est un admin
+        return $user->role_id === 1;
     }
 
     /**
@@ -53,7 +57,8 @@ class PersonnelPolicy
      */
     public function restore(User $user, Personnel $personnel): bool
     {
-        //
+        // peut restaurer que si c'est un admin
+        return $user->role_id === 1;
     }
 
     /**
@@ -61,6 +66,7 @@ class PersonnelPolicy
      */
     public function forceDelete(User $user, Personnel $personnel): bool
     {
-        //
+        // peut supprimer définitivement que si c'est un admin
+        return $user->role_id === 1;
     }
 }

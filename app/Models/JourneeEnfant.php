@@ -14,14 +14,17 @@ class JourneeEnfant extends Model
     {
         return $this->belongsTo(Enfant::class);
     }
+
     public function personnel()
     {
         return $this->hasMany(Personnel::class);
     }
+
     public function menu()
     {
         return $this->belongsTo(Menu::class);
     }
+
     public function planning()
     {
         return $this->belongsTo(Planning::class);

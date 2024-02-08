@@ -18,13 +18,8 @@ class ApiOwnersController extends Controller
     //retourne un propriétaire par son ID
     public function getOwnerById(Request $request)
     {
-        // Récupère l'ID du propriétaire à partir du paramètre de requête 'id'
-        $ownerId = $request->query('id');
-
-        // Trouve le propriétaire par ID ou retourne une erreur 404 si non trouvé
+        $ownerId = $request->input('id');
         $owner = Owner::findOrFail($ownerId);
-
-        // Retourne le propriétaire en JSON
         return response()->json($owner);
     }
 }

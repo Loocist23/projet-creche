@@ -17,11 +17,13 @@
             @method('PUT')
             <div class="form-group">
                 <label for="firstname">Prénom:</label>
-                <input type="text" class="form-control" id="firstname" name="firstname" value="{{ $owner->firstname }}" required>
+                <input type="text" class="form-control" id="firstname" name="firstname" value="{{ $owner->firstname }}"
+                       required>
             </div>
             <div class="form-group">
                 <label for="lastname">Nom de Famille:</label>
-                <input type="text" class="form-control" id="lastname" name="lastname" value="{{ $owner->lastname }}" required>
+                <input type="text" class="form-control" id="lastname" name="lastname" value="{{ $owner->lastname }}"
+                       required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -30,11 +32,13 @@
             <div class="form-group">
                 <label for="birthdate">Date de Naissance:</label>
                 <input type="date" class="form-control" id="birthdate" name="birthdate"
-                       value="{{ is_string($owner->birthdate) ? $owner->birthdate : $owner->birthdate->format('Y-m-d') }}" required>
+                       value="{{ is_string($owner->birthdate) ? $owner->birthdate : $owner->birthdate->format('Y-m-d') }}"
+                       required>
             </div>
             <div class="form-group">
                 <label for="address">Adresse:</label>
-                <input type="text" class="form-control" id="address" name="address" value="{{ $owner->address }}" required>
+                <input type="text" class="form-control" id="address" name="address" value="{{ $owner->address }}"
+                       required>
             </div>
             <div class="form-group">
                 <label for="city">Ville:</label>
@@ -42,7 +46,8 @@
             </div>
             <div class="form-group">
                 <label for="zip_code">Code Postal:</label>
-                <input type="text" class="form-control" id="zip_code" name="zip_code" value="{{ $owner->zip_code }}" required>
+                <input type="text" class="form-control" id="zip_code" name="zip_code" value="{{ $owner->zip_code }}"
+                       required>
             </div>
             <button type="submit" class="btn btn-primary">Mettre à jour</button>
         </form>

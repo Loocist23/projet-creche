@@ -2,22 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Enfant;
 use App\Http\Requests\StoreEnfantRequest;
 use App\Http\Requests\UpdateEnfantRequest;
+use App\Models\Enfant;
 use App\Models\Owner;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class EnfantController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $enfants = Enfant::paginate(10); // Modifiez le nombre pour la pagination selon vos besoins
+        $search = $request->get('search');
+        $enfants = Enfant::when($search, function ($query) use ($search) {
+            $query->where('lastname', 'like', "%{$search}%")
+                ->orWhere('firstname', 'like', "%{$search}%");
+            // Ajoutez d'autres conditions de recherche si nécessaire
+        })->paginate(10);
+
         return view('admin.children.index', compact('enfants'));
     }
+
 
     /**
      * Show the form for creating a new resource.

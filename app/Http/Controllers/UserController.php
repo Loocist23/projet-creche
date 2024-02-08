@@ -10,12 +10,20 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(10); // Ajustez le nombre par page selon vos besoins
+        $searchTerm = $request->get('search');
+
+        $users = User::when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->where(function($query) use ($searchTerm) {
+                $query->where('username', 'LIKE', "%{$searchTerm}%")
+                    ->orWhere('email', 'LIKE', "%{$searchTerm}%");
+                // Ajoutez d'autres champs de recherche si nécessaire
+            });
+        })->paginate(10); // Ajustez le nombre par page selon vos besoins
+
         return view('admin.users.index', compact('users'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -45,7 +53,7 @@ class UserController extends Controller
             // Ajoutez d'autres champs si nécessaire
         ]);
 
-        return redirect()->route('admin.users')->with('success', 'Nouvel utilisateur ajouté avec succès.');
+        return redirect()->route('admin.users.index')->with('success', 'Nouvel utilisateur ajouté avec succès.');
     }
 
 
@@ -84,7 +92,7 @@ class UserController extends Controller
 
         $user->update($validatedData);
 
-        return redirect()->route('admin.users')->with('success', 'Utilisateur mis à jour avec succès.');
+        return redirect()->route('admin.users.index')->with('success', 'Utilisateur mis à jour avec succès.');
     }
 
 
@@ -96,7 +104,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('admin.users')->with('success', 'Utilisateur supprimé avec succès.');
+        return redirect()->route('admin.users.index')->with('success', 'Utilisateur supprimé avec succès.');
     }
 
 }

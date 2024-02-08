@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JourneeEnfant;
 use App\Http\Requests\StoreJourneeEnfantRequest;
 use App\Http\Requests\UpdateJourneeEnfantRequest;
+use App\Models\JourneeEnfant;
 
 class JourneeEnfantController extends Controller
 {

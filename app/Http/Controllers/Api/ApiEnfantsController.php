@@ -11,6 +11,8 @@ class ApiEnfantsController extends Controller
     //liste tout les enfants
     public function index()
     {
+        // utilise la policy pour vérifier si l'utilisateur peut voir tout les enfants
+        $this->authorize('viewAny', Enfant::class);
         $enfants = Enfant::all();
         return response()->json($enfants);
     }
@@ -18,13 +20,9 @@ class ApiEnfantsController extends Controller
     //retourne un enfant par son ID
     public function getEnfantById(Request $request)
     {
-        // Récupère l'ID de l'enfant à partir du paramètre de requête 'id'
-        $enfantId = $request->query('id');
-
-        // Trouve l'enfant par ID ou retourne une erreur 404 si non trouvé
+        $enfantId = $request->input('id');
         $enfant = Enfant::findOrFail($enfantId);
-
-        // Retourne l'enfant en JSON
+        $this->authorize('view', $enfant);
         return response()->json($enfant);
     }
 }

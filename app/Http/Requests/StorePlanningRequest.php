@@ -22,12 +22,12 @@ class StorePlanningRequest extends FormRequest
     public function rules(): array
     {
         return [
-            '8H-10h'   => 'required|string|max:255',
-            '10H-12h'  => 'required|string|max:255',
-            '12H-14h'  => 'required|string|max:255',
-            '14H-16h'  => 'required|string|max:255',
-            '16H-18h'  => 'required|string|max:255',
-            'date'     => 'required|date',
+            '8H-10h' => 'required|string|max:255',
+            '10H-12h' => 'required|string|max:255',
+            '12H-14h' => 'required|string|max:255',
+            '14H-16h' => 'required|string|max:255',
+            '16H-18h' => 'required|string|max:255',
+            'date' => 'required|date',
         ];
     }
 }

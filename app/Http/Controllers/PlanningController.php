@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Planning;
 use App\Http\Requests\StorePlanningRequest;
 use App\Http\Requests\UpdatePlanningRequest;
+use App\Models\Planning;
 
 class PlanningController extends Controller
 {

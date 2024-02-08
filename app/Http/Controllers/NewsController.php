@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
+use App\Models\News;
 
 class NewsController extends Controller
 {

@@ -14,7 +14,8 @@
 
             <div class="form-group">
                 <label for="description">Description:</label>
-                <textarea class="form-control" id="description" name="description" required>{{ $menu->description }}</textarea>
+                <textarea class="form-control" id="description" name="description"
+                          required>{{ $menu->description }}</textarea>
             </div>
 
             <div class="form-group">
@@ -29,12 +30,14 @@
 
             <div class="form-group">
                 <label for="dessert">Dessert:</label>
-                <input type="text" class="form-control" id="dessert" name="dessert" value="{{ $menu->dessert }}" required>
+                <input type="text" class="form-control" id="dessert" name="dessert" value="{{ $menu->dessert }}"
+                       required>
             </div>
 
             <div class="form-group">
                 <label for="date">Date:</label>
-                <input type="date" class="form-control" id="date" name="date" value="{{ $menu->date ? \Carbon\Carbon::parse($menu->date)->format('Y-m-d') : '' }}" required>
+                <input type="date" class="form-control" id="date" name="date"
+                       value="{{ $menu->date ? \Carbon\Carbon::parse($menu->date)->format('Y-m-d') : '' }}" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Mettre à jour</button>

@@ -23,7 +23,7 @@
                 <div class="card">
                     <div class="card-header">Gestion des Utilisateurs</div>
                     <div class="card-body">
-                        <a href="{{ route('admin.users') }}" class="btn btn-primary">Voir les Utilisateurs</a>
+                        <a href="{{ route('admin.users.index') }}" class="btn btn-primary">Voir les Utilisateurs</a>
                         <a href="{{ route('admin.users.create') }}" class="btn btn-success">Ajouter un Utilisateur</a>
                     </div>
                     <div class="card-header">Gestion des Enfants</div>
@@ -39,7 +39,8 @@
                     <div class="card-header">Gestion du Personnel</div>
                     <div class="card-body">
                         <a href="{{ route('admin.staffs.index') }}" class="btn btn-primary">Voir le Personnel</a>
-                        <a href="{{ route('admin.staffs.create') }}" class="btn btn-success">Ajouter un Membre du Personnel</a>
+                        <a href="{{ route('admin.staffs.create') }}" class="btn btn-success">Ajouter un Membre du
+                            Personnel</a>
                     </div>
                     <div class="card-header">Gestion des Menus</div>
                     <div class="card-body">

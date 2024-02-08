@@ -21,7 +21,9 @@
             </div>
             <div class="form-group">
                 <label for="birthdate">Date de Naissance:</label>
-                <input type="date" class="form-control" id="birthdate" name="birthdate" value="{{ is_string($enfant->birthdate) ? $enfant->birthdate : $enfant->birthdate->format('Y-m-d') }}" required>
+                <input type="date" class="form-control" id="birthdate" name="birthdate"
+                       value="{{ is_string($enfant->birthdate) ? $enfant->birthdate : $enfant->birthdate->format('Y-m-d') }}"
+                       required>
             </div>
             <button type="submit" class="btn btn-primary">Mettre à jour</button>
         </form>

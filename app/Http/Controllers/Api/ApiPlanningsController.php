@@ -18,13 +18,8 @@ class ApiPlanningsController extends Controller
     //retourne un planning par son ID
     public function getPlanningById(Request $request)
     {
-        // Récupère l'ID du planning à partir du paramètre de requête 'id'
-        $planningId = $request->query('id');
-
-        // Trouve le planning par ID ou retourne une erreur 404 si non trouvé
+        $planningId = $request->input('id');
         $planning = Planning::findOrFail($planningId);
-
-        // Retourne le planning en JSON
         return response()->json($planning);
     }
 }

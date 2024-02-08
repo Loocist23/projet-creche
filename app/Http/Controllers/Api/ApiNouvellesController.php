@@ -18,13 +18,8 @@ class ApiNouvellesController extends Controller
     //retourne une nouvelle par son ID
     public function getNouvelleById(Request $request)
     {
-        // Récupère l'ID de la nouvelle à partir du paramètre de requête 'id'
-        $nouvelleId = $request->query('id');
-
-        // Trouve la nouvelle par ID ou retourne une erreur 404 si non trouvé
+        $nouvelleId = $request->input('id');
         $nouvelle = News::findOrFail($nouvelleId);
-
-        // Retourne la nouvelle en JSON
         return response()->json($nouvelle);
     }
 }

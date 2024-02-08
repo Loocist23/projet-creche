@@ -2,18 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Personnel;
 use App\Http\Requests\StorePersonnelRequest;
 use App\Http\Requests\UpdatePersonnelRequest;
+use App\Models\Personnel;
+use Illuminate\Http\Client\Request;
 
 class PersonnelController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $personnels = Personnel::paginate(10); // Modifiez le nombre selon vos besoins
+        $searchTerm = $request->get('search');
+
+        $personnels = Personnel::when($searchTerm, function ($query) use ($searchTerm) {
+            return $query->where(function($query) use ($searchTerm) {
+                $query->where('nom', 'LIKE', "%{$searchTerm}%")
+                    ->orWhere('prenom', 'LIKE', "%{$searchTerm}%")
+                    ->orWhere('email', 'LIKE', "%{$searchTerm}%")
+                    ->orWhere('poste', 'LIKE', "%{$searchTerm}%");
+                // Ajoutez d'autres champs de recherche si nécessaire
+            });
+        })->paginate(10); // Modifiez le nombre selon vos besoins
+
         return view('admin.staffs.index', compact('personnels'));
     }
 

@@ -18,13 +18,8 @@ class ApiMenusController extends Controller
     //retourne un menu par son ID
     public function getMenuById(Request $request)
     {
-        // Récupère l'ID du menu à partir du paramètre de requête 'id'
-        $menuId = $request->query('id');
-
-        // Trouve le menu par ID ou retourne une erreur 404 si non trouvé
+        $menuId = $request->input('id');
         $menu = Menu::findOrFail($menuId);
-
-        // Retourne le menu en JSON
         return response()->json($menu);
     }
 }
